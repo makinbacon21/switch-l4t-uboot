@@ -6,6 +6,7 @@
 
 #include <common.h>
 #include <i2c.h>
+#include <version.h>
 #include <asm/io.h>
 #include <asm/arch/gpio.h>
 #include <asm/arch/pinmux.h>
@@ -236,6 +237,8 @@ void board_env_setup(void)
 
 	/* Clear out scratch0 mode select bits */
 	writel(scratch0 & (~SCRATCH0_BOOT_MODE_MASK), &pmc->pmc_scratch0);
+
+    env_set("blver", PLAIN_VERSION);
 
 	/* Set Display ID */
 	env_set_hex("display_id", display_id);
