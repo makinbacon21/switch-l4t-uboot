@@ -212,7 +212,7 @@ int fat_read_file(const char *filename, void *buf, loff_t offset, loff_t len,
 
 	res = f_open(&fp, filename, FA_READ);
 	if (res != FR_OK) {
-		eprintf("Failed to open %s: %d\n", filename, res);
+		debug("Failed to open %s: %d\n", filename, res);
 		return -1;
 	}
 
